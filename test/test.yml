@@ -1,0 +1,14 @@
+- hosts: jira_software
+  become: true
+  vars:
+    - jira_user_group: jira
+    - jira_user: jira
+    - jira_user_home_dir: "/opt"
+    - jira_home: "/var/jira"
+    - jira_download_link: "http://www.atlassian.com/software/jira/downloads/binary"
+    - jira_filename: "atlassian-jira-software"
+    - jira_version: "7.2.4"
+    - jira_version_file_sha256sum: 0a57714dc5cf8d136a5ecf9156c6875f5547ce6c2b7aac9acc94695ea2d4b529
+  roles:
+    - overdrive3000.java8
+    - overdrive3000.jira

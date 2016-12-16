@@ -2,15 +2,16 @@
 galaxy_info:
   author: "Juan Mesa"
   description: "An Ansible playbook to automate the installation of Atlassian Jira, could posibly be used to keep it updated"
-  documentation_url: https://github.com/Flux7Labs/stoneridge/blob/master/ansible-playbooks/roles/jira/README.md
+  documentation_url: https://github.com/overdrive3000/ansible-jira/blob/master/README.md
   license: BSD
-  min_ansible_version: 1.4
+  min_ansible_version: 2.2
   platforms:
     - name: EL
       versions:
-        - 6 
         - 7
-  categories:
+  tags:
    - development
+   - jira
+   - atlassion
 dependencies:
-  - role: java
+  - role: overdrive3000.java8
