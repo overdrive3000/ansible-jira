@@ -1,0 +1,29 @@
+---
+
+# Jira default port is 8080 in order to don't
+# give capabilities or privileges to Jira (java)
+# process we'll redirect the traffic from port 80
+# to port 8080 instead.
+
+- name: redirect web traffic to port 8080
+  iptables: 
+    table: nat
+    chain: PREROUTING
+    in_interface: eth0
+    protocol: tcp
+    match: tcp
+    destination_port: 80
+    jump: REDIRECT
+    to_ports: 8080
+    comment: "Redirect web traffic from port 8080 to 80"
+
+# Setup database connection
+- name: setup database connection
+  template: 
+    src: dbconfig.xml.j2 
+    dest: "{{ jira_home }}/dbconfig.xml"
+    owner: "{{ jira_user }}"
+    group: "{{ jira_user_group }}"
+  notify: 
+    - jira restart
+  when: set_db

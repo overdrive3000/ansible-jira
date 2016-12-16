@@ -1,0 +1,4 @@
+---
+- hosts: testserver
+  roles:
+   - jira
