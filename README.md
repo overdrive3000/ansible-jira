@@ -5,7 +5,7 @@ Based on https://github.com/fauzigo/ansible-jira
 Role jira
 =========
 
-Role to deploy Jira on RedHat 7.0 linux servers.
+Role to deploy Jira Core or Jira Service Desk on RedHat 7.0 linux servers.
 
 
 Requirements
@@ -80,6 +80,22 @@ jira_db_host: localhost
 jira_db_name: jiradb
 jira_db_user: jira
 jira_db_password: verylongsecurepassword
+```
+
+In order to install Jira Service Desk use these variables
+```
+---
+# Specific Jira Service Desk variables
+
+jira_user_group: jira
+jira_user: jira
+jira_user_home_dir: "/opt"
+jira_home: "/var/jira"
+jira_download_link: "https://downloads.atlassian.com/software/jira/downloads"
+jira_filename: "atlassian-servicedesk"
+jira_extracted: "atlassian-jira-servicedesk"
+jira_version: "3.2.6"
+jira_version_file_sha256sum: f7c5a91833ba2d1bd59d1f62d75d41422a309429ccd7bbc32241cc24c648878e
 ```
 
 License
